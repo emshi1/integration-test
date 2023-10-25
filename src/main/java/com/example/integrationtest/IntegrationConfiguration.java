@@ -13,7 +13,7 @@ import org.springframework.scheduling.support.CronTrigger;
 public class IntegrationConfiguration {
 
     @Bean
-    public MessageChannel dst() {
+    public MessageChannel dstChannel() {
         return MessageChannels.queue("dstChannel").getObject();
     }
 

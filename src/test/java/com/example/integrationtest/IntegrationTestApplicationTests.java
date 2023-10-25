@@ -20,14 +20,14 @@ class IntegrationTestApplicationTests {
     private MockIntegrationContext context;
 
     @Autowired
-    private PollableChannel dst;
+    private PollableChannel dstChannel;
 
 
     @Test
     void contextLoads() {
         MessageSource<Set<String>> messageSource = () -> new GenericMessage<>(Set.of("foo", "bar", "baz"));
         context.substituteMessageSourceFor("source-detector", messageSource);
-        assertNotNull(dst.receive(5000)); //not working
+        assertNotNull(dstChannel.receive(4000));
     }
 
 }
